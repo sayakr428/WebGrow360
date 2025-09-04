@@ -1,3 +1,4 @@
+import logo from './2.png';
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, MessageCircle } from 'lucide-react';
@@ -25,12 +26,14 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-20 h-20 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">WG360</span>
-            </div>
-            <span className="text-xl font-bold text-gray-900">WebGrow360</span>
-          </Link>
+          <img 
+  src={'/src/components/2.png'}
+  alt="Canvas Logo"
+  className="w-28 h-28 object-contain"
+/>
+
+
+
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
