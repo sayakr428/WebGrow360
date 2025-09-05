@@ -9,13 +9,13 @@
     "prisma:migrate": "prisma migrate dev --name init"
   },
   "dependencies": {
-    "@prisma/client": "^5.18.0",
+    "@prisma/client": "^6.15.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2"
   },
   "devDependencies": {
-    "prisma": "^5.18.0",
+    "prisma": "^6.15.0",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.9.2"
   }

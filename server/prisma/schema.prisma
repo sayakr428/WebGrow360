@@ -9,9 +9,9 @@ datasource db {
 
 model WhatsappLead {
   id           String   @id @default(cuid())
-  name         String? 
-  phone        String? 
-  message      String? 
+  name         String?
+  phone        String?
+  message      String?
   pageUrl      String?
   utmSource    String?
   utmMedium    String?
