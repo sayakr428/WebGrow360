@@ -237,4 +237,23 @@ npm run lint
   "framer-motion": "^10.16.1"
 }
 ```
+### Push the Updation in your github
+```
+# 1. Check which files were modified/untracked
+git status  
 
+# 2. Stage all changes (tracked + untracked files)
+git add .  
+
+# 3. Commit the staged changes with a message
+git commit -m "updation"  
+
+# 4. Try to push changes to remote GitHub repo (rejected since remote was ahead)
+git push origin main  
+
+# 5. Rebase local branch with the latest changes from GitHub
+git pull origin main --rebase  
+
+# 6. Push again after rebase (successful this time 🚀)
+git push origin main  
+```
