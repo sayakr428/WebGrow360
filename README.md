@@ -248,12 +248,12 @@ git add .
 # 3. Commit the staged changes with a message
 git commit -m "updation"  
 
-# 4. Try to push changes to remote GitHub repo (rejected since remote was ahead)
+# 4. Try to push changes to remote GitHub repo 
 git push origin main  
 
 # 5. Rebase local branch with the latest changes from GitHub
 git pull origin main --rebase  
 
-# 6. Push again after rebase (successful this time 🚀)
+# 6. Push again after rebase 
 git push origin main  
 ```
