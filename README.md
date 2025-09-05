@@ -7,6 +7,8 @@
 
 WebGrow360 is a modern, responsive website for a digital marketing agency based in Agartala, Tripura (West), India. It showcases digital marketing services including SEO, website development, and social media marketing, with integrated WhatsApp communication for instant client engagement.
 
+A full-stack digital marketing web app with **WhatsApp Lead Capture + Database Integration**. Built using **React (Vite)** for frontend and **Node.js + Express + Prisma (SQLite)** for backend.
+
 🌐 **Live Website**: [https://webgroww360.netlify.app/](https://webgroww360.netlify.app/)
 
 ---
@@ -256,4 +258,86 @@ git pull origin main --rebase
 
 # 6. Push again after rebase 
 git push origin main  
+```
+
+---
+
+## ✨ New Additions
+
+- ✅ **Backend Server** (`server/`) using Express + Prisma  
+- ✅ **SQLite Database** with `WhatsappLead` model  
+- ✅ **Global WhatsApp Interceptor** – every click on a WhatsApp button/link is logged to the DB  
+- ✅ **Prisma Studio** to view leads visually  
+- ✅ Cleaned up `.gitignore` to ignore local DB + env files  
+
+---
+
+## 🛠 Problems Faced & Fixes
+
+1. **Prisma Engine Errors on Windows**  
+   - Issue: `EPERM: operation not permitted, rename ... query_engine-windows.dll.node`  
+   - Fix: closed all running Node processes, deleted `.prisma` folder in `node_modules`, re-installed and regenerated client.
+
+2. **Table WhatsappLead Missing in DB**  
+   - Issue: Studio error – table didn’t exist.  
+   - Fix: ran  
+     ```bash
+     npx prisma migrate reset --force
+     npx prisma migrate dev --name init
+     ```
+
+3. **Git Conflicts due to case-sensitive folder (`Server/` vs `server/`)**  
+   - Issue: Windows ignored case, but Git treated paths differently.  
+   - Fix:  
+     ```bash
+     git mv Server temp_server
+     git mv temp_server server
+     ```
+
+4. **Untracked `dev.db` blocking rebase**  
+   - Fix: Updated `.gitignore` to include both:
+     ```
+     server/prisma/dev.db
+     Server/prisma/dev.db
+     ```
+
+5. **Frontend not logging leads**  
+   - Issue: WhatsApp links were plain `<a>` tags.  
+   - Fix: Added **global interceptor** in `main.tsx` that uses `navigator.sendBeacon` to send lead info before navigation.
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Backend (server)
+```bash
+cd server
+npm install
+npx prisma generate
+npx prisma migrate dev --name init
+npm run dev
+```
+## Running or Loading the DB
+```
+cd server
+npx prisma studio
+```
+
+##Git Workflow
+```
+# Stage specific changes
+git add server/package.json server/package-lock.json server/prisma/schema.prisma server/src/app.ts src/main.tsx
+
+# Commit changes
+git commit -m "feat: add global WhatsApp interceptor and backend fixes"
+
+# Update .gitignore
+git add .gitignore
+git commit -m "chore: ignore dev.db in both server/ and Server/"
+
+# Rebase with remote
+git pull --rebase origin main
+
+# Push changes
+git push origin main
 ```
