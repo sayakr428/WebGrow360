@@ -57,3 +57,6 @@ app.get('/api/leads', async (_req, res) => {
 app.listen(PORT, () => {
   console.log(`API listening on http://localhost:${PORT}`)
 })
+
+
+console.log('cwd =', process.cwd(), 'DATABASE_URL =', process.env.DATABASE_URL)
