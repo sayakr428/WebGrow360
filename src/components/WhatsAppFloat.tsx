@@ -1,11 +1,34 @@
-import React from 'react';
-import { MessageCircle } from 'lucide-react';
+import React from 'react'
+import { MessageCircle } from 'lucide-react'
 
 const WhatsAppFloat = () => {
   const openWhatsApp = () => {
-    const message = encodeURIComponent("Hi! I'm interested in learning more about your digital marketing services.");
-    window.open(`https://wa.me//919830022167?text=${message}`, '_blank');
-  };
+    const message = "Hi! I'm interested in learning more about your digital marketing services."
+
+    try {
+      const url = new URL(window.location.href)
+      const utm = {
+        source: url.searchParams.get('utm_source'),
+        medium: url.searchParams.get('utm_medium'),
+        campaign: url.searchParams.get('utm_campaign'),
+      }
+
+      // --- Use sendBeacon to avoid losing the request on navigation ---
+      const payload = JSON.stringify({
+        message,
+        pageUrl: window.location.href,
+        utm,
+      })
+      const blob = new Blob([payload], { type: 'application/json' })
+      // Vite proxy will forward /api to http://localhost:4000
+      navigator.sendBeacon('/api/leads', blob)
+    } catch {
+      // ignore
+    } finally {
+      const wa = `https://wa.me/919830022167?text=${encodeURIComponent(message)}`
+      window.open(wa, '_blank')
+    }
+  }
 
   return (
     <button
@@ -15,7 +38,7 @@ const WhatsAppFloat = () => {
     >
       <MessageCircle size={24} />
     </button>
-  );
-};
+  )
+}
 
-export default WhatsAppFloat;
+export default WhatsAppFloat

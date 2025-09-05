@@ -726,7 +726,7 @@ const GraphicDesignServicePage = () => {
       </div>
 
       {/* Advanced CSS Animations */}
-      <style jsx>{`
+      <style >{`
         @keyframes float-slow {
           0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
           33% { transform: translateY(-20px) rotate(1deg) scale(1.05); }

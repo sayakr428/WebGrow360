@@ -440,7 +440,7 @@ Please get back to me with more information.`;
       <div className="fixed bottom-1/4 left-1/4 w-3 h-3 bg-pink-400 rounded-full animate-bounce opacity-60"></div>
       <div className="fixed top-1/2 right-10 w-5 h-5 bg-cyan-400 rounded-full animate-ping opacity-60 animation-delay-1000"></div>
 
-      <style jsx>{`
+      <style >{`
         @keyframes liquidFloat {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
           50% { transform: translateY(-20px) rotate(180deg); }

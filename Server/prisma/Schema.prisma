@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model WhatsappLead {
+  id           String   @id @default(cuid())
+  name         String? 
+  phone        String? 
+  message      String? 
+  pageUrl      String?
+  utmSource    String?
+  utmMedium    String?
+  utmCampaign  String?
+  userAgent    String?
+  referer      String?
+  createdAt    DateTime @default(now())
+}

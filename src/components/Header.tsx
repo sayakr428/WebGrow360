@@ -18,7 +18,7 @@ const Header = () => {
 
   const openWhatsApp = () => {
     const message = encodeURIComponent("Hi! I'm interested in learning more about your digital marketing services.");
-    window.open(`https://wa.me/9150568165?text=${message}`, '_blank');
+    window.open(`https://wa.me/919830022167?text=${message}`, '_blank');
   };
 
   return (

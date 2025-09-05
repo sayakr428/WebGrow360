@@ -327,7 +327,7 @@ const BlogPage = () => {
       </div>
 
       {/* Enhanced CSS for liquid effects */}
-      <style jsx>{`
+      <style >{`
         @keyframes liquidFlow {
           0%, 100% { 
             transform: translateY(0px) rotate(0deg) scale(1); 

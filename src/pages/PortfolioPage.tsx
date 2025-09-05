@@ -369,7 +369,7 @@ const PortfolioPage = () => {
       </div>
 
       {/* Custom CSS for additional liquid effects */}
-      <style jsx>{`
+      <style >{`
         @keyframes liquidFlow {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
           50% { transform: translateY(-20px) rotate(5deg); }
